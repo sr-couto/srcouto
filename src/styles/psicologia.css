@@ -1,0 +1,17 @@
+ol li {
+  @apply !pl-0;
+}
+
+ol li h1 {
+  @apply !mb-12;
+  text-wrap: balance
+}
+
+ol li h1 {
+  @apply !font-light font-serif !leading-tight !text-2xl
+}
+
+
+ol li h1 strong {
+  @apply !font-normal text-xl block !font-sans !opacity-70
+}

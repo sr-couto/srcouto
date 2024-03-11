@@ -1,0 +1,8 @@
+---
+// import { Image } from 'astro:assets';
+const { alt, src, width, height } = Astro.props;
+---
+
+<div class="relative max-w-3xl mx-auto" >
+  <img alt={alt} src={src} width={width} height={height} />
+</div>

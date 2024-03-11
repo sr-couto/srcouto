@@ -1,0 +1,29 @@
+---
+import PageLayout from "@/layouts/Page.astro";
+import SubHeading from "@/components/Plugs/SubHeading.astro";
+import Heading from "@/components/Plugs/Heading.astro";
+import BlogPost from "@/components/BlogPost/BlogPost.astro";
+import { getCollection } from "astro:content";
+const allBlogPosts = await getCollection("traducciones");
+
+const posts = allBlogPosts;
+
+const myFeaturedPost = posts.filter((post) => post.data.featured);
+---
+
+<PageLayout>
+  <Heading
+    title="Hola 👋"
+    subtitle="Textos traducidos al español de libros, videos y charlas en inglés."
+  />
+  <SubHeading title="Traducciones recomendadas" ariaLabel="Ver todas las traducciones." link />
+  {
+    myFeaturedPost.map((post) => (
+      <BlogPost
+        title={post.data.title}
+        description={post.data.description}
+        url={`/traducciones/${post.slug}`}
+      />
+    ))
+  }
+</PageLayout>

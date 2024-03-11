@@ -1,0 +1,47 @@
+---
+const { title, link, ariaLabel } = Astro.props;
+---
+
+<div class="Container">
+  <h2 class="Title">
+    <span class="Misc">{title}</span>
+  </h2>
+  {
+    link && (
+      <a
+        href="/traducciones"
+        aria-label={ariaLabel}
+        class="flex items-center justify-between w-32 cursor-pointer text-xs uppercase duration-300 dark:text-white group"
+      >
+        Ver más
+        <svg
+          class="text-xl duration-300 -translate-x-4 group-hover:-translate-x-6 dark:fill-white"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+    )
+  }
+</div>
+
+<style>
+  .Container {
+    @apply relative w-full flex justify-between items-center;
+  }
+
+  .Title {
+    @apply w-full  my-6 font-sans text-base font-medium uppercase opacity-80 md:text-xl dark:text-white;
+  }
+
+  :global(.dark) .Title {
+    @apply text-white border-gray-800;
+  }
+</style>

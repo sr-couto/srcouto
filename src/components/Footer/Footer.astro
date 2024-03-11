@@ -1,0 +1,51 @@
+---
+const today = new Date();
+---
+
+<footer class="Footer">
+  <div class="Grid">
+    <div class="GridItem">
+      <a href="/"> Inicio</a>
+      <a href="/traducciones">Traducciones</a>
+      <a href="/traducciones/licencia">Licencia</a>
+      <!-- <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="/cv">CV</a
+      > -->
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/sr-couto/src"
+        class="font-bold underline underline-offset-4">Realizado en Astro {today.getFullYear()}</a
+      >
+    </div>
+  </div>
+</footer>
+
+<style>
+  .Footer {
+    @apply relative mt-12 md:mt-24 flex flex-col items-start justify-center w-full max-w-full py-6 mx-auto overflow-hidden;
+  }
+
+  .Divider {
+    @apply w-full mb-8;
+  }
+
+  .Grid {
+    @apply grid w-full max-w-3xl  pb-16 mx-auto text-center;
+  }
+
+  .GridItem {
+    @apply flex flex-col justify-center items-center space-y-4;
+    @apply dark:text-white;
+  }
+
+  .GridItem a {
+    @apply hover:font-bold;
+  }
+  :global(.dark) .GridItem a,
+  :global(.dark) .GridItem p {
+    @apply text-white;
+  }
+</style>

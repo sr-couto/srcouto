@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Page.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
+import Heading from "@/components/Plugs/Heading.astro";
+import BlogPost from "@/components/BlogPost/BlogPost.astro";
+import { getCollection } from "astro:content";
+
+const allBlogPosts = await getCollection("traducciones");
+
+const posts = allBlogPosts;
+---
+
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <Heading
+    title="Traducciones"
+    subtitle="Textos traducidos al español de libros, videos y charlas en inglés."
+  />
+  <div class="grid gap-2">
+  {
+    posts.map((post) => (
+      <BlogPost
+        title={post.data.title}
+        description={post.data.description}
+        url={`/traducciones/${post.slug}`}
+      />
+    ))
+  }
+  </div>
+</Layout>

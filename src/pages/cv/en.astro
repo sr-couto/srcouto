@@ -1,0 +1,10 @@
+---
+import LayoutCv from "@/components/Cv/LayoutCv.astro";
+import HeaderCv from "@/components/Cv/HeaderCvEn";
+import BodyCv from "@/components/Cv/BodyCvEn";
+---
+
+<LayoutCv english>
+  <HeaderCv client:load />
+  <BodyCv client:load />
+</LayoutCv>

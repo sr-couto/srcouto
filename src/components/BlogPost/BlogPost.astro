@@ -1,0 +1,24 @@
+---
+import WorkInProgress from "@/components/BlogPost/WorkInProgress";
+
+const { title, description, url, wip } = Astro.props;
+---
+
+  <div
+    class="relative w-full justify-start items-start px-4 py-6 font-sans shadow duration-300 hover:shadow-xl opacity-90 border-gray-800 hover:opacity-100 border-t border-b rounded flex flex-col border-opacity-30"
+  >
+    <a
+      href={url}
+      class="pr-4 mb-2 inline-flex text-2xl font-medium outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:pl-2 rounded duration-300 visited:!text-indigo-300 md:text-xl hover:underline underline-offset-4"
+    >
+      {title}
+    </a>
+    <p class="pb-2 pr-4 text-base md:text-lg font-normal">{description}</p>
+    {
+      wip && (
+        <div class="absolute right-0 top-6">
+          <WorkInProgress client:load />
+        </div>
+      )
+    }
+  </div>
