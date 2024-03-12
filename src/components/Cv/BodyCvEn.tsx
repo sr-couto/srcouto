@@ -118,7 +118,7 @@ const BodyCv = () => {
           </WorkExperience>
           <Title title="Education" />
           <EducationItem
-            description="7 years and made 76,47% of the career"
+            description="7 years and made 68.18% of the career"
             time="2007 - 2014"
             line
           >

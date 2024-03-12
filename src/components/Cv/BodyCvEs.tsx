@@ -117,7 +117,7 @@ const BodyCvEs = () => {
           </WorkExperience>
           <Title title="Educación" />
           <EducationItem
-            description="Cursado el 76,47% de la carrera."
+            description="Cursado el 68.18% de la carrera."
             time="2007 - 2014"
             line
           >
