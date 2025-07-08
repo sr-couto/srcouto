@@ -117,8 +117,8 @@ const BodyCvEs = () => {
           </WorkExperience>
           <Title title="Educación" />
           <EducationItem
-            description="Cursado el 68.18% de la carrera."
-            time="2007 - 2014"
+            description="Cursado el 80.32% de la carrera."
+            time="2007 - 2014 | 2024 al presente"
             line
           >
             Diseño Gráfico (UBA)
