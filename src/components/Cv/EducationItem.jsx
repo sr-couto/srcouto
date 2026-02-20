@@ -12,7 +12,7 @@ export const EducationItem = (props) => {
               <span className=" uppercase">
                 {sector}
               </span>
-              <span class="md:hidden print:hidden">&bull;</span>
+              <span className="md:hidden print:hidden">&bull;</span>
             </>
           )}
           {time}
