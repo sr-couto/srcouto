@@ -1,4 +1,5 @@
 import { Brackets } from "./Brackets";
+import EmailCopy from "./EmailCopy";
 
 const HeaderCv = () => {
   return (
@@ -22,7 +23,7 @@ const HeaderCv = () => {
             <span>Diseñador Web</span>
             <span>{"&"} Desarrollador Frontend</span>
           </div>
-          <div className="flex flex-col my-2 space-y-1 text-sm italic print:space-y-1 print:text-right md:text-right">
+          <div className="flex flex-col my-2 gap-y-1 text-sm italic print:gap-y-1 print:text-right md:text-right">
             <a
               target="_blank"
               className="underline hover:opacity-50"
@@ -31,7 +32,8 @@ const HeaderCv = () => {
             >
               srcouto.pages.dev/cv
             </a>
-            <span className="underline select-all">santuan.web@gmail.com</span>
+            <EmailCopy />
+            <span className="print:block hidden underline select-all">santuan.web@gmail.com</span>
             <span className="hover:opacity-50 cursor-help">
               consultar portfolio
             </span>
