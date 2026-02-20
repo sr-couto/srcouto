@@ -2,30 +2,9 @@
 import Layout from "@/layouts/Page.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
 import Heading from "@/components/Plugs/Heading.astro";
-import BlogPost from "@/components/BlogPost/BlogPost.astro";
-import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Heading title="Blog" subtitle="Textos basados en ideas de otras personas." />
-  <div class="grid gap-2">
-    {
-      posts.map((post) => (
-        <div
-          class={`${
-            post.data.wip ? " border border-indigo-300/50" : ""
-          } group flex relative w-full items-center rounded-2xl bg-primary-foreground pr-6 overflow-hidden text-sm`}
-        >
-          <BlogPost
-            title={post.data.title}
-            description={post.data.description}
-            url={`/blog/${post.slug}`}
-            wip={post.data.wip}
-          />
-        </div>
-      ))
-    }
-  </div>
+  <Heading title="Blog" subtitle="En pendiente" />
 </Layout>

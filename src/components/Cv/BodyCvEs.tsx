@@ -1,21 +1,13 @@
-import { Tech } from "./Tech"
-import { TechItem } from "./TechItem"
-import { WorkExperience } from "./WorkExperience"
-import { EducationItem } from "./EducationItem"
-
-const Title = ({ title }) => {
-  return (
-    <>
-      <div className="mt-3">
-        <div className="border-b-2 border-dotted border-zinc-300 print:border-zinc-800">
-          <h2 className="relative inline-block py-2 text-xl font-black uppercase border-b-2 border-zinc-500 print:text-base dark:border-white print:!border-zinc-800 top-0.5">
-            {title}
-          </h2>
-        </div>
-      </div>
-    </>
-  );
-};
+import { Tech } from "./TechLists/Tech";
+import { WorkExperience } from "./WorkExperience";
+import { EducationItem } from "./EducationItem";
+import { Title } from "./Title";
+import { TechItem } from "./TechLists/TechItem";
+import { TechItemsWindows } from "./TechLists/TechItemsWindows";
+import { TechItemsWebDev } from "./TechLists/TechItemsWebDev";
+import { TechItemsFrameworks } from "./TechLists/TechItemsFrameworks";
+import { TechItemsCms } from "./TechLists/TechItemsCms";
+import { TechItemsHosting } from "./TechLists/TechItemsHosting";
 
 const BodyCvEs = () => {
   return (
@@ -27,49 +19,26 @@ const BodyCvEs = () => {
             <h3 className="mt-4 text-base font-medium uppercase print:text-sm">
               diseñador ux y ui
             </h3>
-            <Tech description="Nivel avanzado de Adobe y Windows.">
-              <TechItem title="illustrator" percentage="100%" />
-              <TechItem title="photoshop" percentage="100%" />
-              <TechItem title="afterEffects" percentage="50%" />
-              <TechItem title="vsCode" percentage="100%" />
-              <TechItem title="inDesign" percentage="50%" />
-              <TechItem title="figma" percentage="60%" />
-              <TechItem title="blender" percentage="60%" />
+            <Tech description="Nivel avanzado de Windows y Adobe.">
+              <TechItemsWindows />
             </Tech>
-            <Tech description="Enfoque de diseño accesible y adaptado a cualquier dispositivo." />
-            <Tech description="Compatibilidad trabajando con todos los navegadores." />
-            <Tech description="Maquetación web avanzada.">
-              <TechItem title="html5" percentage="90%" />
-              <TechItem title="svg" percentage="80%" />
-              <TechItem title="sass" percentage="70%" />
-              <TechItem title="tailwindCSS" percentage="100%" />
-              <TechItem title="cssModules" percentage="70%" />
-              <TechItem title="designSystems" percentage="70%" />
-            </Tech>
-            <h3 className="mt-4 text-base font-medium uppercase print:text-sm">
+            <Tech link="/traducciones/el-diseno-centrado-en-las-personas" description="Diseño enfocado en la accesibilidad adaptada a todos los dispositivos." />
+            <h3 className="mt-8 text-base font-medium uppercase print:text-sm">
               desarrollador frontend
             </h3>
-            <Tech description="Nivel intermedio de Linux con manejo de terminal de comandos y control de versiones." />
-            <Tech description="Integración de aplicaciones y webs con diversos gestores de contenidos.">
-              <TechItem title="contentfulCMS" percentage="70%" />
-              <TechItem title="sanityCMS" percentage="70%" />
-              <TechItem title="jekyll" percentage="50%" />
-              <TechItem title="netlifyCms" percentage="50%" />
-              <TechItem title="django" percentage="40%" />
+             <Tech description="Compatibilidad trabajando con todos los navegadores." />
+            <Tech description="Maquetación web avanzada.">
+              <TechItemsWebDev />
             </Tech>
+            <Tech description="Nivel intermedio de Linux con manejo de terminal de comandos y control de versiones." />
             <Tech description="Experiencia trabajando con diferentes frameworks">
-              <TechItem title="astro" percentage="70%" />
-              <TechItem title="vue.js" percentage="70%" />
-              <TechItem title="next.js" percentage="50%" />
-              <TechItem title="gatsby.js" percentage="70%" />
-              <TechItem title="ember.js" percentage="40%" />
+              <TechItemsFrameworks />
+            </Tech>
+            <Tech description="Integración de aplicaciones y webs con diversos gestores de contenidos.">
+              <TechItemsCms />
             </Tech>
             <Tech description="Puesta en producción y optimización">
-              <TechItem title="netlify" percentage="60%" />
-              <TechItem title="gh-pages" percentage="70%" />
-              <TechItem title="vercel" percentage="60%" />
-              <TechItem title="lighthouse" percentage="80%" />
-              <TechItem title="cloudinary" percentage="80%" />
+              <TechItemsHosting lang="es" />
             </Tech>
           </div>
         </div>
@@ -79,28 +48,29 @@ const BodyCvEs = () => {
             title="Ministerio Público Fiscal "
             role="diseñador ux/ui y desarrollador frontend"
             sector="ámbito público"
-            time="Nov. 2018 ‒ A la fecha"
+            time="Nov. 2018 &#10143; A la fecha"
             line
           >
-            Desarrollo de interfaces y experiencia de usuario para todos los
-            sitios y aplicaciones del Ministerio.
+            Actualización de los procesos actuales de diseño y desarrollo.
+            Mejorando la experiencia de usuario en los sitios web y aplicaciones
+            de la institución.
           </WorkExperience>
           <WorkExperience
             title="Cámara de Diputados de la Nación"
             role="diseñador y maquetador frontend"
             sector="ámbito público"
-            time="Feb. 2014 ‒ Dic. 2015"
+            time="Feb. 2014 &#10143; Dic. 2015"
             line
           >
-            Diseño de interfaz del Sistema Parlamentario Digital Digitalización
-            de diversos procesos Parlamentarios. Creación de webs internas y
+            Diseño de interfaz del Sistema Parlamentario Digital. Digitalización
+            de diversos procesos parlamentarios. Creación de webs internas y
             externas de la institución.
           </WorkExperience>
           <WorkExperience
             title="Estudio Criteria"
             role="diseñador web junior"
             sector="ámbito privado"
-            time="Feb. 2013 ‒ Mar. 2014"
+            time="Feb. 2013 &#10143; Mar. 2014"
             line
           >
             Diseño de marca y folleteria corporativa Diseño y maquetación de
@@ -110,22 +80,24 @@ const BodyCvEs = () => {
             title="Revision Alpha Hosting"
             role="diseñador web junior"
             sector="ámbito privado"
-            time="Feb. 2011 ‒ Mar. 2013"
+            time="Feb. 2011 &#10143; Mar. 2013"
           >
             Maquetación de newsletters / sitios corporativos / Soporte técnico /
             Manejo básico de servidores.
           </WorkExperience>
           <Title title="Educación" />
           <EducationItem
-            description="Cursado el 80.32% de la carrera."
-            time="2007 - 2014 | 2024 al presente"
+            description="Cursado el 81.32% de la carrera."
+            time="2007 &#10143; 2014 & 2024 &#10143; presente"
+            sector="Sector público"
             line
           >
             Diseño Gráfico (UBA)
           </EducationItem>
           <EducationItem
-            description="Curso de refinamiento micro y macro tipográfico."
+            description="Refinamiento micro y macro tipográfico."
             time="2013"
+            sector="Curso"
             line
           >
             Tipitos Argentinos
@@ -135,14 +107,16 @@ const BodyCvEs = () => {
           </EducationItem>
           <EducationItem
             description="First Certificate Exam"
-            time="1999 - 2007"
+            time="1999 &#10143; 2007"
+            sector="Sector privado"
             line
           >
             Clover english centre
           </EducationItem>
           <EducationItem
             description="Bachiller con capacitación en informática."
-            time="2002 - 2007"
+            time="2002 &#10143; 2007"
+            sector="Sector privado"
           >
             Escuela Secundaria
           </EducationItem>

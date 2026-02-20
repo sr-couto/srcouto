@@ -8,7 +8,7 @@ import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://srcouto.netlify.app",
+  site: "https://srcouto.pages.dev",
   image: {
     domains: ["res.cloudinary.com"],
     remotePatterns: [{ protocol: "https" }],

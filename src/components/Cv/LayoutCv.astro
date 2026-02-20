@@ -15,10 +15,10 @@ const { english } = Astro.props;
   </head>
   <body>
     <div
-      class="relative px-4 pt-16 pb-8 overflow-x-hidden font-sans bg-white print:!bg-white dark:bg-gray-900 print:text-gray-900 md:pt-20 print:pt-3 print:md:pt-3 cvPage"
+      class="relative px-4 pt-16 pb-8 overflow-x-hidden font-sans bg-white print:!bg-white dark:bg-gray-900 print:text-gray-900 md:pt-0 print:pt-3 print:md:pt-3 cvPage"
     >
       <div
-        class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full h-16 bg-white/70 dark:bg-gray-900/90 print:hidden backdrop-blur-lg hue-rotate-30 dark:hue-rotate-15"
+        class="fixed md:relative bottom-0 left-0 right-0 z-50 flex items-center justify-center w-full h-16 bg-white/70 dark:bg-gray-900/90 print:hidden backdrop-blur-lg hue-rotate-30 dark:hue-rotate-15"
       >
         <div
           class="flex relative z-10 items-center justify-between w-full max-w-3xl px-2 md:px-8 mx-auto"
@@ -126,6 +126,5 @@ const { english } = Astro.props;
       </div>
       <slot />
     </div>
-    
   </body>
 </html>
