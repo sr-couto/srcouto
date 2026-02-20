@@ -17,7 +17,7 @@ const HeaderCv = () => {
           </h1>
           <Brackets/>
         </div>
-        <div className="grid flex-1 w-full grid-cols-2 col-span-3 gap-3 mt-5 font-medium dark:text-white print:!text-gray-900 print:mt-0 print:grid-cols-2">
+        <div className="grid flex-1 w-full md:grid-cols-2 col-span-3 gap-3 mt-5 font-medium dark:text-white print:!text-gray-900 print:mt-0 print:grid-cols-2">
           <div className="flex flex-col my-2 space-y-1 text-sm print:space-y-1">
             <span>Buenos Aires (Argentina)</span>
             <span>Diseñador Web</span>
