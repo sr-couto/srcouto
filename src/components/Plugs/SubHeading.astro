@@ -2,9 +2,9 @@
 const { title, link, ariaLabel } = Astro.props;
 ---
 
-<div class="Container">
-  <h2 class="Title">
-    <span class="Misc">{title}</span>
+<div class="relative w-full flex justify-between items-center">
+  <h2 class="w-full my-6 font-serif font-bold uppercase text-sm">
+    {title}
   </h2>
   {
     link && (
@@ -31,17 +31,3 @@ const { title, link, ariaLabel } = Astro.props;
     )
   }
 </div>
-
-<style>
-  .Container {
-    @apply relative w-full flex justify-between items-center;
-  }
-
-  .Title {
-    @apply w-full  my-6 font-sans text-base font-medium uppercase opacity-80 md:text-xl dark:text-white;
-  }
-
-  :global(.dark) .Title {
-    @apply text-white border-gray-800;
-  }
-</style>

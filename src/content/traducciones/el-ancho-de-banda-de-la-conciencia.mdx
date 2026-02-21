@@ -3,13 +3,13 @@ featured: true
 layout: "@/layouts/Blog.astro"
 title: "El ancho de banda de la conciencia"
 pubDate: "Abril, 2021"
-description: "Que informacion percibimos con nuestros sentidos."
+description: "Que información percibimos con nuestros sentidos."
 heroImage: "https://res.cloudinary.com/srcouto/image/upload/c_scale,q_100,w_1920/v1624063633/ Next-srcouto/el-ancho-de-banda-de-la-conciencia/banner.png"
 sourceUrl: "https://www.youtube.com/watch?v=pLqjQ55tz-U"
 sourceText: "Charla Ted de David McCandless sobre el libro “La Ilusión del Usuario” de Tor Norretranders."
 ---
 
-import Youtube from "@/components/Plugs/Youtube.jsx";
+import Youtube from "@/components/Plugs/Youtube.astro";
 import ImageLightbox from "@/components/Plugs/ImageLightbox.astro";
 export const components = { Youtube, ImageLightbox };
 
@@ -67,7 +67,6 @@ Ojos, miradas, observaciones o percepciones. Todos somos muy sensibles a los pat
 
 
 <Youtube
-  client:visible
   title="Charla de David McCandless."
   video="pLqjQ55tz-U"
   thumbnail="https://res.cloudinary.com/srcouto/image/upload/v1667003571/Next-srcouto/el-ancho-de-banda-de-la-conciencia/ted-DavidcCandless_fxuqgp.jpg"

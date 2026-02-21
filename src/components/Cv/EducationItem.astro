@@ -1,0 +1,25 @@
+---
+const { time, line, description, sector } = Astro.props;
+---
+
+<>
+  <div class="relative my-3 print:mt-2">
+    <h3 class="text-lg font-medium print:text-base"><slot /></h3>
+    <h4 class="text-sm">{description}</h4>
+    <time class="relative right-0 flex items-center gap-1.5 text-xs md:italic top-2 print:items-end print:m-0 print:flex-col md:items-end md:flex-col md:absolute print:absolute print:top-1 print:gap-1.5">
+      
+      {sector && (
+        <>
+          <span class="uppercase">
+            {sector}
+          </span>
+          <span class="md:hidden print:hidden">•</span>
+        </>
+      )}
+      {time}
+    </time>
+  </div>
+  {line && (
+    <hr class="mb-3 border-dashed border-zinc-300 dark:border-zinc-600 print:border-zinc-800" />
+  )}
+</>

@@ -2,8 +2,8 @@
 import BlogPost from "@/components/BlogPost/BlogPost.astro";
 import Footer from "@/components/Footer/Footer.astro";
 import SubHeading from "@/components/Plugs/SubHeading.astro";
-import { Separator } from "@/components/ui/separator";
-import Layout from "@/layouts/BaseLayout.astro";
+import Separator from "@/components/BlogPost/Separator.astro";
+import Layout from "@/layouts/LayoutBase.astro";
 import { getCollection, getEntry } from "astro:content";
 
 export interface Props {
@@ -29,10 +29,10 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
 <Layout>
   <article class="px-6 md:px-3">
     <div class="sm:px-12 pt-24 sm:max-w-3xl w-full mx-auto">
-      <h1 class="mb-4 font-sans text-3xl text-white font-medium md:text-4xl">
+      <h1 class="mb-4 font-serif text-3xl text-white font-medium md:text-4xl">
         {title}
       </h1>
-      <h2 class="relative block mb-6 font-sans text-xl md:text-xl text-white">
+      <h2 class="relative block mb-6 font-serif text-xl md:text-xl text-white">
         {description}
       </h2>
       <Separator />
@@ -43,7 +43,9 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
           <div class="flex items-center">
             {
               pubDate && (
-                <time class="capitalize font-caption text-base ">{pubDate}</time>
+                <time class="capitalize font-caption text-base ">
+                  {pubDate}
+                </time>
               )
             }
           </div>
@@ -66,7 +68,7 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
         }
       </div>
       <Separator />
-      <div class="py-3 font-mono text-xs text-left"> 
+      <div class="py-3 font-mono text-xs text-left">
         {sourceText}
       </div>
     </div>
@@ -78,13 +80,11 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
     <Separator />
   </article>
   <aside class="max-w-3xl sm:px-12 w-full mx-auto">
-    <div class="px-4">
-    <SubHeading
-      title="Más traducciones"
-      ariaLabel="Ver más contenido de traducciones"
-      link
-    />
-    </div>
+      <SubHeading
+        title="Más traducciones"
+        ariaLabel="Ver más contenido de traducciones"
+        link
+      />
     {
       myFeaturedPost.map((post) => (
         <BlogPost

@@ -1,24 +1,48 @@
 ---
-import WorkInProgress from "@/components/BlogPost/WorkInProgress";
-
-const { title, description, url, wip } = Astro.props;
+const { title, description, url } = Astro.props;
 ---
 
-  <div
-    class="relative w-full justify-start items-start px-4 py-6 font-sans shadow duration-300 hover:shadow-xl opacity-90 border-gray-800 hover:opacity-100 border-t border-b rounded flex flex-col border-opacity-30"
+<h3
+  class="blogpost relative w-full justify-start items-start focus-within:ring-2 focus-within:ring-indigo-500 px-2.5 focus-within:pl-2 py-6 font-serif shadow duration-300 hover:shadow-xl border border-primary/10 flex flex-col"
+>
+  <a
+    href={url}
+    class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:!text-[#a5b4fc] md:text-xl"
   >
-    <a
-      href={url}
-      class="pr-4 mb-2 inline-flex text-2xl font-medium outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:pl-2 rounded duration-300 visited:!text-indigo-300 md:text-xl hover:underline underline-offset-4"
+    <span
+      class="w-full flex-col sm:flex-row flex items-start sm:items-center justify-between"
     >
       {title}
-    </a>
-    <p class="pb-2 pr-4 text-base md:text-lg font-normal">{description}</p>
-    {
-      wip && (
-        <div class="absolute right-0 top-6">
-          <WorkInProgress client:load />
-        </div>
-      )
-    }
-  </div>
+      <span class="visited">Visitado</span>
+    </span>
+    <p class="description pb-2 text-base md:text-lg font-normal">
+      {description}
+    </p>
+  </a>
+</h3>
+
+<style>
+  .blogpost .visited {
+    color: #1f2937;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-family: var(--font-mono);
+    font-style: italic;
+  }
+
+  .blogpost a:visited .visited {
+    color: rgb(185, 196, 211) !important;
+  }
+  .blogpost a:visited .description {
+    color: rgb(83, 108, 144) !important;
+  }
+
+  .blogpost:focus-within a:visited .visited,
+  .blogpost:hover a:visited .visited {
+    color: white !important;
+  }
+  .blogpost:focus-within a:visited .description,
+  .blogpost:hover a:visited .description {
+    color: white !important;
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+type TechItemProps = {
+  title: string;
+  percentage: string;
+  misc?: string;
+};
+
+const { title, percentage, misc } = Astro.props as TechItemProps;
+
+function getGreenClass(percentage: string): string {
+  const num = parseFloat(percentage);
+  if (num >= 80) return "bg-emerald-500/80";
+  if (num >= 60) return "bg-emerald-500/60";
+  if (num >= 40) return "bg-amber-500/40";
+  if (num >= 20) return "bg-amber-500/20";
+  return "bg-amber-500/5";
+}
+
+const greenClass = getGreenClass(percentage);
+---
+
+<div class="border-b group border px-1 text-xs text-zinc-700 border-zinc-200 dark:text-zinc-300 dark:border-zinc-700 print:!border-zinc-200 print:!text-zinc-700 print:opacity-100 relative">
+  {title}
+  {misc && (
+    <span class="text-xs  text-right scale-90 inline-block">
+      ({misc})
+    </span>
+  )}
+</div>

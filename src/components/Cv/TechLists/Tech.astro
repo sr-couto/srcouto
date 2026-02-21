@@ -1,0 +1,26 @@
+---
+const { description, link } = Astro.props;
+---
+
+<div class="flex mt-4 print:mt-3">
+  <span class="w-6 mt-0.5 font-black">*</span>
+  <div class="flex flex-col w-full">
+    <p>{description}</p>
+    {
+      link && (
+        <a
+          target="_blank"
+          class="print:hidden mt-1 font-normal gap-1 underline underline-offset-2 hover:opacity-70 flex group items-center justify-start py-1 hover:no-underline text-xs"
+          href={link}
+        >
+          Leer artículo
+        </a>
+      )
+    }
+    <div
+      class="flex gap-1.5 mt-2 flex-wrap items-start sm:max-w-48 justify-start w-full text-sm italic font-medium"
+    >
+      <slot />
+    </div>
+  </div>
+</div>

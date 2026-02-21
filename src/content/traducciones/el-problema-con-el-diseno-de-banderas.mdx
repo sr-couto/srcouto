@@ -9,7 +9,7 @@ sourceUrl: "https://www.youtube.com/watch?v=pnv5iKB2hl4"
 sourceText: "Contenido extraído de la conferencia de Roman Mars en TED. Créditos a la traducción en español de Cuicani Ríos y Lidia Cámara de la Fuente."
 ---
 
-import Youtube from "@/components/Plugs/Youtube.jsx";
+import Youtube from "@/components/Plugs/Youtube.astro";
 import ImageLightbox from "@/components/Plugs/ImageLightbox.astro";
 import ImageCaption from "@/components/Plugs/Caption.astro";
 export const components = {
@@ -19,7 +19,6 @@ export const components = {
 };
 
 <Youtube
-  client:visible
   title="Roman Mars: Por qué algunas banderas pueden ser las peores jamás diseñadas"
   video="pnv5iKB2hl4"
   thumbnail="https://res.cloudinary.com/srcouto/image/upload/v1666891944/Next-srcouto/el-problema-con-el-diseno-de-banderas/Roman_Mars-flaghs_vjabmu.jpg"

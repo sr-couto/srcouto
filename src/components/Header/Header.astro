@@ -1,30 +1,30 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import DropdownMenuDemo from "@/components/Header/DropdownMenuDemo";
 import { SITE_TITLE } from "@/config";
+const { link } = Astro.props;
 ---
 
-<div class="nav bien-nav">
+<div class="nav bien-nav print:hidden">
   <header class="header">
-    <HeaderLink class="logo" aria-label="Santiago R. Couto" href="/">
+    <a
+      class="uppercase block font-mono hover:opacity-80 font-bold text-xl"
+      aria-label="Santiago R. Couto"
+      href="/"
+    >
       ./{SITE_TITLE}/
+    </a>
+    <HeaderLink href=`${link}` aria-label=`Ir a página de ${link}`>
+      {link}
     </HeaderLink>
-    <nav role="navigation">
-      <HeaderLink href="/traducciones" aria-label="Ir a página de traducciones.">Traducciones</HeaderLink>
-      <!-- <HeaderLink href="/cv" aria-label="Ir a página de Extractos.">cv</HeaderLink> -->
-    </nav>
+    <slot />
   </header>
   <div class="bien-glass"></div>
   <div class="bien-glass-edge"></div>
 </div>
 
 <style is:global>
-  .logo {
-    @apply block font-mono hover:opacity-80 uppercase font-bold text-xl;
-  }
-
   .header {
-    @apply max-w-full px-4  mx-auto lg:max-w-3xl lg:px-12 flex items-center justify-between w-full py-3 z-20 relative;
+    @apply max-w-full px-4  mx-auto lg:max-w-3xl lg:px-12 flex items-center justify-start print:hidden w-full py-3 z-20 relative;
   }
 
   .header nav {
@@ -38,7 +38,7 @@ import { SITE_TITLE } from "@/config";
     top: 0;
     height: 55px;
     z-index: 999;
-    @apply bg-gray-900;
+    @apply dark:bg-gray-900 bg-white/50;
   }
 
   .bien-glass {

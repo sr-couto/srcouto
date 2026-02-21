@@ -1,0 +1,107 @@
+---
+import BaseHead from "@/components/BaseHead/BaseHead.astro";
+import Fonts from "@/components/BaseHead/Fonts.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
+import ThemeIcon from "@/components/Cv/themeIcon.astro";
+import Header from "@/components/Header/Header.astro";
+
+const { english } = Astro.props;
+---
+
+<html lang={english ? "en" : "es"}>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+    <Fonts />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header link="cv">
+      <div
+        class="relative flex items-center justify-center w-full print:hidden"
+      >
+        <div
+          class="flex relative z-10 items-center gap-3 justify-end w-full max-w-4xl px-0 mx-auto"
+        >
+          <div class="flex relative z-10 items-center gap-1 justify-end mr-3 sm:mr-4">
+            <a
+              href="/cv/"
+              data-tip="Traducir al Inglés"
+              aria-label="Ir a la versión en Ingles"
+              class=`h-8 text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${english ? 'opacity-40' : 'underline underline-offset-2'}`
+            >
+              español
+            </a>
+            <a
+              href="/cv/en"
+              data-tip="Traducir al Inglés"
+              aria-label="Ir a la versión en Ingles"
+             class=`h-8 text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${!english ? 'opacity-40' : 'underline underline-offset-2'}`
+            >
+              english
+            </a>
+          </div>
+
+          {
+            english && (
+              <a
+                href="/SRC-en.pdf"
+                target="_blank"
+                data-tip="Descargar PDF"
+                aria-label="Descargar CV en formato PDF"
+                rel="noopener noreferrer"
+                class="w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6"
+                >
+                  <path
+                    class="fill-gray-800 dark:fill-white"
+                    d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+                  />
+                </svg>
+              </a>
+            )
+          }
+
+          {
+            !english && (
+              <a
+                href="/SRC.pdf"
+                target="_blank"
+                data-tip="Download PDF file"
+                aria-label="Download CV in PDF format"
+                rel="noopener noreferrer"
+                class="w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6"
+                >
+                  <path
+                    class="fill-gray-800 dark:fill-white"
+                    d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+                  />
+                </svg>
+              </a>
+            )
+          }
+          <ThemeIcon />
+        </div>
+      </div>
+    </Header>
+    <div class="bg-gray-50 dark:bg-gray-950">
+      <div
+        class="relative px-4 max-w-3xl mx-auto pt-3 pb-20 print:pb-8 md:pb-8 overflow-x-hidden font-sans bg-white print:!bg-white dark:bg-gray-900 print:text-gray-900 lg:pt-10 print:pt-3 print:md:pt-3 cvPage"
+      >
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+---
+import Brackets from "./Brackets.astro";
+import EmailCopy from "./EmailCopy.astro";
+---
+
+<div
+  class="relative z-0 grid w-full max-w-2xl grid-cols-1 mx-auto sm:gap-2 print:max-w-full sm:grid-cols-5 print:grid-cols-5"
+>
+  <div class="relative w-full col-span-2 print:w-auto">
+    <h1
+      class="relative z-10 flex flex-col font-sans text-2xl leading-relaxed tracking-widest uppercase dark:text-white print:!text-gray-900 print:text-xl"
+    >
+      <span class="font-extrabold">santiago</span>
+      <span class="font-medium">
+        <span class="font-extrabold">r</span>odríguez
+      </span>
+      <span class="font-light">
+        <span class="font-medium">c</span>outo
+      </span>
+    </h1>
+    <Brackets />
+  </div>
+  <div
+    class="grid flex-1 w-full sm:grid-cols-2 col-span-3 gap-3 mt-2 dark:text-white print:!text-gray-900 print:mt-0 print:grid-cols-2"
+  >
+    <div class="flex flex-col my-2 gap-y-4 text-sm font-medium">
+      <span>Buenos Aires (Argentina)</span>
+      <span>
+        <span>Web Designer</span>
+        <br />
+        <span> & Frontend developer</span>
+      </span>
+    </div>
+    <div
+      class="flex flex-col my-2 gap-y-4 text-sm  print:text-right sm:text-right"
+    >
+      <a
+        target="_blank"
+        class="flex sm:justify-end gap-1 items-center hover:opacity-70"
+        rel="noopener noreferrer"
+        href="https://srcouto.pages.dev/cv/en"
+      >
+        <span class="underline underline-offset-2">srcouto.pages.dev/cv/en/</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 print:hidden"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          ><!-- Icon from Lucide by Lucide Contributors - https://github.com/lucide-icons/lucide/blob/main/LICENSE -->
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 3h6v6m-11 5L21 3m-3 10v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          ></path></svg
+        >
+      </a>
+      <div>
+        <span class=""> santuan.web@gmail.com </span>
+        <br />
+        <span
+          class="font-light hidden print:block underline underline-offset-2 select-none"
+        >
+          ask for portfolio
+        </span>
+        <EmailCopy>
+          <span class="font-light italic underline underline-offset-2 text-xs select-none">
+            Copy email
+          </span>
+        </EmailCopy>
+      </div>
+    </div>
+  </div>
+</div>

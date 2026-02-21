@@ -12,11 +12,11 @@ const isActive = href === Astro.url.pathname.replace(/\/$/, "");
 <style>
   a {
     display: inline-block;
-    @apply dark:text-white opacity-80 hover:opacity-100 no-underline;
+    @apply dark:text-white px-px transition-opacity duration-300 opacity-40 hover:opacity-100 no-underline;
+    @apply block font-mono hover:opacity-80 font-bold text-xl focus-visible:opacity-80;
   }
+
   a.active {
     @apply opacity-100 font-bold;
   }
-
-
 </style>

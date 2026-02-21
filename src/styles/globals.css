@@ -33,6 +33,8 @@
     --ring: 224 71.4% 4.1%;
 
     --radius: 0.5rem;
+
+    --font-mono: "Space Mono", "mono";
   }
 
   .dark {
@@ -76,11 +78,6 @@
 
   ::selection {
     @apply text-gray-900 bg-gray-300 dark:bg-gray-700 dark:text-gray-300;
-  }
-
-  main a:visited,
-  main a:visited span {
-    @apply !text-purple-200
   }
 
   html {

@@ -1,10 +1,10 @@
 ---
-import LayoutCv from "@/components/Cv/LayoutCv.astro";
-import HeaderCv from "@/components/Cv/HeaderCvEn";
-import BodyCv from "@/components/Cv/BodyCvEn";
+import LayoutCv from "@/layouts/LayoutCv.astro";
+import HeaderCv from "@/components/Cv/CurriculumHeadEn.astro";
+import BodyCv from "@/components/Cv/CurriculumBodyEn.astro";
 ---
 
 <LayoutCv english>
-  <HeaderCv client:load />
-  <BodyCv client:load />
+  <HeaderCv />
+  <BodyCv />
 </LayoutCv>
