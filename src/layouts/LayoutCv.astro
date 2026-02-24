@@ -3,9 +3,13 @@ import BaseHead from "@/components/BaseHead/BaseHead.astro";
 import Fonts from "@/components/BaseHead/Fonts.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
 import ThemeIcon from "@/components/Cv/themeIcon.astro";
+import QRCode from "@/components/Cv/QRCode.astro";
 import Header from "@/components/Header/Header.astro";
 
 const { english } = Astro.props;
+const siteUrl = Astro.site?.toString() || "https://srcouto.pages.dev";
+const currentPath = english ? "/cv/en" : "/cv";
+const fullUrl = siteUrl.replace(/\/$/, "") + currentPath;
 ---
 
 <html lang={english ? "en" : "es"}>
@@ -35,7 +39,7 @@ const { english } = Astro.props;
               href="/cv/en"
               data-tip="Traducir al Inglés"
               aria-label="Ir a la versión en Ingles"
-             class=`h-8 text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${!english ? 'opacity-40' : 'underline underline-offset-2'}`
+              class=`h-8 text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${!english ? 'opacity-40' : 'underline underline-offset-2'}`
             >
               english
             </a>
@@ -92,6 +96,7 @@ const { english } = Astro.props;
               </a>
             )
           }
+          <QRCode url={fullUrl} />
           <ThemeIcon />
         </div>
       </div>
@@ -101,6 +106,7 @@ const { english } = Astro.props;
         class="relative px-4 max-w-3xl mx-auto pt-3 pb-20 print:pb-8 md:pb-8 overflow-x-hidden font-sans bg-white print:!bg-white dark:bg-gray-900 print:text-gray-900 lg:pt-10 print:pt-3 print:md:pt-3 cvPage"
       >
         <slot />
+        <QRCode url={fullUrl} print/>
       </div>
     </div>
   </body>
