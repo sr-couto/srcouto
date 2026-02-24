@@ -73,7 +73,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-secondary text-foreground;
+    @apply bg-secondary text-foreground print:bg-white;
   }
 
   ::selection {

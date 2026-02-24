@@ -46,7 +46,7 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
     <div
       id={modalId}
       data-qr-modal
-      class="fixed inset-0 z-[100] hidden bg-black/90 items-center justify-center p-4"
+      class="fixed inset-0 z-[100] hidden print:opacity-0 bg-black/90 items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-label="Código QR"
@@ -71,9 +71,7 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
       </button>
 
       <div class="flex flex-col justify-center h-full items-center gap-6">
-        <div class="bg-white p-4 rounded-lg shadow-2xl">
-          <img src={qrDataUrl} alt="Código QR" class="w-auto h-full md:w-80 md:h-80" />
-        </div>
+        <img src={qrDataUrl} alt="Código QR" class="w-64 bg-white p-6 h-auto md:w-80 md:h-80" />
         <p class="text-white text-sm font-mono">{url}</p>
       </div>
     </div>
@@ -81,8 +79,11 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
 }
 {
   print && (
-    <div class="hidden print:flex absolute w-28 h-28 justify-center items-center print:bottom-0 print:left-0 print:z-50 translate-x-3 -translate-y-5">
-        <img src={qrDataUrl} alt="Código QR" class="w-16 h-16" />
+    <div class="hidden print:flex absolute print:!bg-gray-100 items-center justify-start print:bottom-0 print:left-0 print:z-50 translate-x-4 -translate-y-12 gap-2">
+      <div class=" w-14 h-14 justify-center items-center">
+          <img src={qrDataUrl} alt="Código QR" class="w-14 h-14" />
+      </div>
+      <p class="text-gray-800 pr-3 text-[8px] font-mono">{url}</p>
     </div>
   )
 }
