@@ -15,7 +15,7 @@ const { bodyClass } = Astro.props;
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class={`${bodyClass ? bodyClass : ""} dark`}>
-    <Header link="traducciones" />
+    <Header link="/traducciones" />
     <Fonts />
     <main
       class="flex flex-col relative z-10 justify-center items-center px-0 bg-secondary"

@@ -31,17 +31,17 @@ const fullUrl = siteUrl.replace(/\/$/, "") + currentPath;
               href="/cv/"
               data-tip="Traducir al Inglés"
               aria-label="Ir a la versión en Ingles"
-              class=`h-8 text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${english ? 'opacity-40' : 'underline underline-offset-2'}`
+              class=`h-8 text-lg leading-none sm:text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${english ? 'opacity-40' : 'underline underline-offset-2'}`
             >
-              español
+              es<span class="hidden sm:inline-block">pañol</span>
             </a>
             <a
               href="/cv/en"
               data-tip="Traducir al Inglés"
               aria-label="Ir a la versión en Ingles"
-              class=`h-8 text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${!english ? 'opacity-40' : 'underline underline-offset-2'}`
+              class=`h-8 text-lg leading-none sm:text-xs m-0 flex px-3 justify-center items-center font-mono font-medium text-gray-900 rounded  hover:opacity-90 hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white ${!english ? 'opacity-40' : 'underline underline-offset-2'}`
             >
-              english
+              en<span class="hidden sm:inline-block">glish</span>
             </a>
           </div>
 

@@ -11,7 +11,7 @@ import QrCode from "qrcode";
 
 const qrDataUrl = await QrCode.toDataURL(url, {
   width: 400,
-  margin: 2,
+  margin: 0,
   color: {
     dark: "#000000",
     light: "#ffffff",
@@ -54,7 +54,7 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
       <button
         type="button"
         data-qr-modal-close={modalId}
-        class="absolute top-4 right-4 w-12 h-12 flex items-center justify-center text-white hover:text-gray-300 transition-colors"
+        class="absolute top-1 right-1 w-12 h-12 flex items-center justify-center text-white hover:text-gray-300 transition-colors"
         aria-label="Cerrar modal"
       >
         <svg
@@ -70,9 +70,9 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
         </svg>
       </button>
 
-      <div class="flex flex-col items-center gap-6">
+      <div class="flex flex-col justify-center h-full items-center gap-6">
         <div class="bg-white p-4 rounded-lg shadow-2xl">
-          <img src={qrDataUrl} alt="Código QR" class="w-64 h-64 md:w-80 md:h-80" />
+          <img src={qrDataUrl} alt="Código QR" class="w-auto h-full md:w-80 md:h-80" />
         </div>
         <p class="text-white text-sm font-mono">{url}</p>
       </div>
