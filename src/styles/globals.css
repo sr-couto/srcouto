@@ -82,7 +82,6 @@
 
   html {
     min-width: 360px;
-    @apply sm:scroll-smooth motion-reduce:scroll-auto
+    @apply sm:scroll-smooth motion-reduce:scroll-auto;
   }
-
 }

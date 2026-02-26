@@ -19,7 +19,7 @@ const fullUrl = siteUrl.replace(/\/$/, "") + currentPath;
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <Header link="/cv">
+    <Header link={english ? "/cv/en" : "/cv"} title="CV">
       <div
         class="relative flex items-center justify-center w-full print:hidden"
       >
@@ -101,12 +101,16 @@ const fullUrl = siteUrl.replace(/\/$/, "") + currentPath;
         </div>
       </div>
     </Header>
-    <div class="bg-gray-50 dark:bg-gray-950">
+    <div class="bg-gray-50 dark:bg-gray-950 pb-12 print:pb-0">
       <div
-        class="relative px-4 max-w-3xl mx-auto pt-3 pb-20 print:pb-8 md:pb-8 overflow-x-hidden font-sans bg-white print:!bg-white dark:bg-gray-900 print:text-gray-900 lg:pt-10 print:pt-3 print:md:pt-3 cvPage"
+        class="relative px-4 max-w-4xl mx-auto pt-3 pb-20 print:pb-8 md:pb-24 font-sans bg-white print:!bg-white dark:bg-gray-900 print:text-gray-900 lg:pt-10 print:pt-3 print:md:pt-3 cvPage shadow-lg print:shadow-none"
       >
         <slot />
-        <QRCode url={fullUrl} print/>
+        <QRCode
+          print
+          url={fullUrl}
+          title={english ? "Online version" : "Version online"}
+        />
       </div>
     </div>
   </body>

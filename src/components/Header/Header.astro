@@ -1,7 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "@/config";
-const { link } = Astro.props;
+const { link, title } = Astro.props;
 ---
 
 <div class="nav bien-nav print:hidden">
@@ -13,8 +13,8 @@ const { link } = Astro.props;
     >
       ./{SITE_TITLE}
     </a>
-    <HeaderLink href=`${link}` aria-label=`Ir a página de ${link}`>
-      {link}
+    <HeaderLink href=`${link}` aria-label=`Ir a página de ${title}`>
+      /{title}
     </HeaderLink>
     <slot />
   </header>
@@ -24,7 +24,7 @@ const { link } = Astro.props;
 
 <style is:global>
   .header {
-    @apply max-w-full px-4  mx-auto lg:max-w-3xl lg:px-12 flex items-center justify-start print:hidden w-full py-3 z-20 relative;
+    @apply max-w-full px-4 mx-auto lg:max-w-3xl lg:px-12 flex items-center justify-start print:hidden w-full py-3 z-20 relative;
   }
 
   .header nav {

@@ -4,7 +4,7 @@ const { title, role, line, sector, time } = Astro.props;
 
 <>
     <div class="relative my-4">
-        <h3 class="text-lg font-bold">{title}</h3>
+        <h3 class=" font-bold print:text-base">{title}</h3>
         {role && (
             <h4 class="relative text-sm italic font-medium opacity-70 top-0.5">
                 {role}
@@ -13,7 +13,7 @@ const { title, role, line, sector, time } = Astro.props;
         <p class="pt-2 pr-0 md:pr-0 print:pr-5 print:pt-2">
           <slot />
         </p>
-        <time class="relative right-0 flex items-center gap-2 text-xs md:italic top-2 print:items-end print:m-0 print:flex-col md:items-end md:flex-col md:absolute print:absolute">
+        <time class="relative right-0 flex items-center gap-2 text-xs md:italic top-0 print:items-end print:m-0 print:flex-col md:items-end md:flex-col md:absolute print:absolute">
             {sector && (
               <>
                 <span class="text-xs uppercase">
