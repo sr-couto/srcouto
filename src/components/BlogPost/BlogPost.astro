@@ -10,18 +10,19 @@ const { title, description, url } = Astro.props;
     class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:!text-[#a5b4fc] md:text-xl"
   >
     <span
-      class="w-full flex-col sm:flex-row flex items-start sm:items-center justify-between"
+      class="flex flex-col items-start justify-between w-full sm:flex-row sm:items-center"
     >
       {title}
       <span class="visited">Visitado</span>
     </span>
-    <p class="description pb-2 text-base md:text-lg font-normal">
+    <p class="pb-2 text-base font-normal description md:text-lg">
       {description}
     </p>
   </a>
 </h3>
 
 <style>
+  @reference "@/styles/globals.css";
   .blogpost .visited {
     color: #1f2937;
     font-size: 0.75rem;

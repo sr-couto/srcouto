@@ -7,7 +7,7 @@ const { link, title } = Astro.props;
 <div class="nav bien-nav print:hidden">
   <header class="header">
     <a
-      class="uppercase block font-mono hover:opacity-80 font-bold text-xl"
+      class="block font-mono text-xl font-bold uppercase hover:opacity-80"
       aria-label="Santiago R. Couto"
       href="/"
     >
@@ -22,7 +22,18 @@ const { link, title } = Astro.props;
   <div class="bien-glass-edge"></div>
 </div>
 
+<script>
+  // @ts-ignore
+  import GLightbox from "glightbox";
+  document.addEventListener("DOMContentLoaded", () => {
+    const glightbox = GLightbox({
+      /* options */
+    });
+  });
+</script>
+
 <style is:global>
+    @reference "@/styles/globals.css";
   .header {
     @apply max-w-full px-4 mx-auto lg:max-w-3xl lg:px-12 flex items-center justify-start print:hidden w-full py-3 z-20 relative;
   }

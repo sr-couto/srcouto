@@ -17,17 +17,17 @@ const qrDataUrl = await QrCode.toDataURL(url, {
     light: "#ffffff",
   },
 });
-
-const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
 ---
+
 {
   !print && (
-    <button
-      type="button"
-      data-qr-modal-trigger={modalId}
-      class="w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
+    <a
+      href={qrDataUrl}
+      data-type="image"
+      data-description={url}
+      class="glightbox w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
       aria-label="QR"
-      title="QR"
+      title={url}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -39,42 +39,9 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
         <path
           class="fill-gray-800 dark:fill-white"
           d="M3 11h8V3H3zm2-6h4v4H5zM3 21h8v-8H3zm2-6h4v4H5zM13 3v8h8V3zm6 6h-4V5h4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM17 17h2v2h-2zM15 19h2v2h-2zM19 19h2v2h-2z"
-        ></path>
+        />
       </svg>
-    </button>
-
-    <div
-      id={modalId}
-      data-qr-modal
-      class="fixed inset-0 z-[100] hidden print:opacity-0 bg-black/90 items-center justify-center p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-label="QR"
-    >
-      <button
-        type="button"
-        data-qr-modal-close={modalId}
-        class="absolute top-1 right-1 w-12 h-12 flex items-center justify-center text-white hover:text-gray-300 transition-colors"
-        aria-label="Close"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"
-          ></path>
-        </svg>
-      </button>
-
-      <div class="flex flex-col justify-center h-full items-center gap-6">
-        <img src={qrDataUrl} alt="Código QR" class="w-64 bg-white p-6 h-auto md:w-80 md:h-80" />
-        <p class="text-white text-xs font-mono">{url}</p>
-      </div>
-    </div>
+    </a>
   )
 }
 {
@@ -82,36 +49,42 @@ const modalId = "qr-modal-" + Math.random().toString(36).substr(2, 9);
     <div class="hidden print:flex absolute  items-center justify-between border text-zinc-700 border-zinc-200 print:bottom-0 print:left-0 print:z-50 translate-x-[1rem] p-0.5 -translate-y-10 w-[15.2rem] gap-2">
       <span class="pl-2 text-[10px] font-sans italic">{title}</span>
       <div class="size-[1cm] justify-center  items-center">
-          <img src={qrDataUrl} alt="Código QR" class="size-[1cm]" />
+        <img src={qrDataUrl} alt="Código QR" class="size-[1cm]" />
       </div>
     </div>
   )
 }
 
-<script define:vars={{ modalId }}>
-  const modal = document.getElementById(modalId);
-  const trigger = document.querySelector(
-    `[data-qr-modal-trigger="${modalId}"]`,
-  );
-  const closeBtn = document.querySelector(`[data-qr-modal-close="${modalId}"]`);
-
-  function openModal() {
-    modal.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
+<style is:global>
+  .gslide-image img {
+    padding: 1rem;
+    background: #fff;
   }
 
-  function closeModal() {
-    modal.classList.add("hidden");
-    document.body.style.overflow = "";
+  .gdesc-inner.gdesc-inner {
+    padding: 0;
+    text-align: center;
   }
 
-  trigger?.addEventListener("click", openModal);
-  closeBtn?.addEventListener("click", closeModal);
+  .glightbox-clean .gslide-description {
+    background: transparent;
+  }
 
-  // Cerrar con tecla Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeModal();
+  .gslide-desc {
+    display: none;
+  }
+
+  .gdesc-inner .gslide-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs) !important;
+  }
+
+  @media (max-width: 480px) {
+    .gslide-media {
+      padding: 1rem;
     }
-  });
-</script>
+    .gslide-image img {
+      width: 100% !important;
+    }
+  }
+</style>

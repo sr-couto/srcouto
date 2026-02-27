@@ -2,8 +2,8 @@
 const { title, link, ariaLabel } = Astro.props;
 ---
 
-<div class="relative w-full flex justify-between items-center">
-  <h2 class="w-full my-6 font-serif font-bold uppercase text-sm">
+<div class="relative flex items-center justify-between w-full">
+  <h2 class="w-full my-6 font-mono text-sm font-bold uppercase">
     {title}
   </h2>
   {
@@ -11,11 +11,11 @@ const { title, link, ariaLabel } = Astro.props;
       <a
         href="/traducciones"
         aria-label={ariaLabel}
-        class="flex items-center justify-between w-32 cursor-pointer text-xs uppercase duration-300 dark:text-white group"
+        class="flex items-center justify-end w-32 font-mono text-xs uppercase duration-300 cursor-pointer dark:text-white group"
       >
         Ver más
         <svg
-          class="text-xl duration-300 -translate-x-4 group-hover:-translate-x-6 dark:fill-white"
+          class="dark:fill-white"
           width="32"
           height="32"
           viewBox="0 0 24 24"

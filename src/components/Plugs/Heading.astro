@@ -6,6 +6,7 @@ const { title, subtitle } = Astro.props;
 {subtitle && <h2 class="Subtitle">{subtitle}</h2>}
 
 <style>
+  @reference "@/styles/globals.css";
   .Title {
     @apply mb-4 font-serif w-full text-left text-4xl font-medium md:text-3xl;
     @apply text-white border-gray-800;
