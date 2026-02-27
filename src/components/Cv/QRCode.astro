@@ -24,7 +24,6 @@ const qrDataUrl = await QrCode.toDataURL(url, {
     <a
       href={qrDataUrl}
       data-type="image"
-      data-description={url}
       class="glightbox w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
       aria-label="QR"
       title={url}
@@ -62,7 +61,6 @@ const qrDataUrl = await QrCode.toDataURL(url, {
   }
 
   .gdesc-inner.gdesc-inner {
-    padding: 0;
     text-align: center;
   }
 
@@ -70,13 +68,12 @@ const qrDataUrl = await QrCode.toDataURL(url, {
     background: transparent;
   }
 
-  .gslide-desc {
-    display: none;
-  }
+
 
   .gdesc-inner .gslide-title {
     font-family: var(--font-mono);
     font-size: var(--text-xs) !important;
+    color: #fff;
   }
 
   @media (max-width: 480px) {
