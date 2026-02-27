@@ -3,7 +3,7 @@
 
 @theme {
   --font-sans: "Fira Sans", sans;
-  --font-serif: "Noto Serif", serif;
+  --font-serif: "EB Garamond Variable", serif;
   --font-mono: "Space Mono", monospace;
 
   --color-border: hsl(var(--border));

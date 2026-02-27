@@ -7,7 +7,7 @@ const { title, description, url } = Astro.props;
 >
   <a
     href={url}
-    class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:!text-[#a5b4fc] md:text-xl"
+    class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:text-[#a5b4fc]! md:text-xl"
   >
     <span
       class="flex flex-col items-start justify-between w-full sm:flex-row sm:items-center"
@@ -35,7 +35,7 @@ const { title, description, url } = Astro.props;
     color: rgb(185, 196, 211) !important;
   }
   .blogpost a:visited .description {
-    color: rgb(83, 108, 144) !important;
+    color: rgb(216, 220, 226) !important;
   }
 
   .blogpost:focus-within a:visited .visited,
