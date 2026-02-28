@@ -12,42 +12,39 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
 ---
 
 <PageLayout>
-  <Heading
-    title="Hola 👋"
-    subtitle="Textos traducidos al español de libros, videos y charlas en inglés."
-  />
-  <SubHeading
-    title="Recomendadas"
-    ariaLabel="Ver todas las traducciones."
-  />
-  <div class="grid gap-2">
-    {
-      myFeaturedPost.map((post) => (
-        <BlogPost
-          title={post.data.title}
-          description={post.data.description}
-          url={`/traducciones/${post.slug}`}
-        />
-      ))
-    }
-  </div>
-  <a
-    href="/traducciones"
-    aria-label="Ver todas las traducciones"
-    class="flex items-center justify-center gap-2 cursor-pointer text-center w-full bg-gray-950/20 py-6 mt-6 uppercase duration-300 dark:text-white group outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 hover:ring-2 hover:ring-indigo-500"
-  >
-    <span>Ver todas</span>
-    <svg
-      class="text-xl duration-300 translate-x-0 group-hover:translate-x-1 dark:fill-white"
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
+    <Heading
+        title="Hola"
+        subtitle="Textos traducidos al español de libros, videos y charlas en inglés."
+    />
+    <SubHeading title="Recomendadas" />
+    <div class="grid gap-2">
+        {
+            myFeaturedPost.map((post) => (
+                <BlogPost
+                    title={post.data.title}
+                    description={post.data.description}
+                    url={`/traducciones/${post.slug}`}
+                />
+            ))
+        }
+    </div>
+    <a
+        href="/traducciones"
+        aria-label="Ver todas las traducciones"
+        class="flex items-center justify-center gap-2 cursor-pointer text-center w-full bg-gray-950/20 py-6 mt-6 uppercase duration-300 dark:text-white group outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 hover:ring-2 hover:ring-indigo-500"
     >
-      <path
-        fill="currentColor"
-        fill-rule="evenodd"
-        d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"
-        clip-rule="evenodd"></path>
-    </svg>
-  </a>
+        <span>Ver todas</span>
+        <svg
+            class="text-xl duration-300 translate-x-0 group-hover:translate-x-1 dark:fill-white"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+        >
+            <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"></path>
+        </svg>
+    </a>
 </PageLayout>

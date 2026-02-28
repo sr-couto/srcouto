@@ -5,23 +5,45 @@ import Header from "@/components/Header/Header.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/config";
 
 export interface Props {
-  bodyClass?: string;
+    bodyClass?: string;
 }
 
 const { bodyClass } = Astro.props;
 ---
 
 <html lang="es">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class={`${bodyClass ? bodyClass : ""} dark`}>
-    <Header link="/traducciones" title="Traducciones" />
-    <Fonts />
-    <main
-      class="flex flex-col relative z-10 justify-center items-center px-0 bg-secondary"
-    >
-      <slot />
-    </main>
-  </body>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class={`${bodyClass ? bodyClass : ""} dark`}>
+        <Header link="/traducciones" title="Traducciones" />
+        <Fonts />
+        <main
+            class="flex flex-col relative z-10 justify-center items-center px-0 bg-secondary"
+        >
+            <slot />
+            <svg
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-0 z-[-1] size-full fill-indigo-500/50 stroke-indigo-500/50 [mask-image:linear-gradient(to_top,_#ffffffad,_transparent)] opacity-20"
+                ><defs
+                    ><pattern
+                        id=":S5:"
+                        width="8.689"
+                        height="8.689"
+                        patternUnits="userSpaceOnUse"
+                        x="-1"
+                        y="-1"
+                        ><path
+                            d="M.5 8.689V.5H8.689"
+                            fill="none"
+                            stroke-dasharray="0"></path></pattern
+                    ></defs
+                ><rect
+                    width="100%"
+                    height="100%"
+                    stroke-width="0"
+                    fill="url(#:S5:)"></rect></svg
+            >
+        </main>
+    </body>
 </html>

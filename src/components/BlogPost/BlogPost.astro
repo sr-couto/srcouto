@@ -3,51 +3,51 @@ const { title, description, url } = Astro.props;
 ---
 
 <h3
-  class="blogpost relative w-full justify-start items-start focus-within:ring-2 focus-within:ring-indigo-500 px-2.5 py-6 font-serif shadow duration-300 hover:shadow-xl border border-primary/10 flex flex-col  hover:ring-2 hover:ring-indigo-500"
+    class="blogpost relative w-full bg-gray-700/20 justify-start items-start focus-within:ring-2 focus-within:ring-indigo-500 px-2.5 py-6 font-serif shadow duration-300 hover:shadow-xl border border-primary/10 flex flex-col hover:ring-2 hover:ring-indigo-500"
 >
-  <a
-    href={url}
-    class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:text-[#a5b4fc]! md:text-3xl"
-  >
-    <span
-      class="flex flex-col items-start justify-between w-full sm:flex-row sm:items-center"
+    <a
+        href={url}
+        class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:text-[#a5b4fc]! md:text-3xl"
     >
-      {title}
-      <span class="visited">Visitado</span>
-    </span>
-    <p class="pb-2 text-base font-normal description md:text-lg">
-      {description}
-    </p>
-  </a>
+        <span
+            class="flex flex-col items-start justify-between w-full sm:flex-row sm:items-center"
+        >
+            {title}
+            <span class="visited">Visitado</span>
+        </span>
+        <p class="pb-2 text-base font-normal description md:text-lg">
+            {description}
+        </p>
+    </a>
 </h3>
 
 <style>
-  @reference "@/styles/globals.css";
-  .blogpost .visited {
-    color: #1f2937;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-family: var(--font-mono);
-    font-style: italic;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 0.5rem
-  }
+    @reference "@/styles/globals.css";
+    .blogpost .visited {
+        color: #1f2937;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        font-family: var(--font-mono);
+        font-style: italic;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0.5rem;
+    }
 
-  .blogpost a:visited .visited {
-    color: rgb(185, 196, 211) !important;
-  }
-  .blogpost a:visited .description {
-    color: rgb(216, 220, 226) !important;
-  }
+    .blogpost a:visited .visited {
+        color: rgb(185, 196, 211) !important;
+    }
+    .blogpost a:visited .description {
+        color: rgb(216, 220, 226) !important;
+    }
 
-  .blogpost:focus-within a:visited .visited,
-  .blogpost:hover a:visited .visited {
-    color: white !important;
-  }
-  .blogpost:focus-within a:visited .description,
-  .blogpost:hover a:visited .description {
-    color: white !important;
-  }
+    .blogpost:focus-within a:visited .visited,
+    .blogpost:hover a:visited .visited {
+        color: white !important;
+    }
+    .blogpost:focus-within a:visited .description,
+    .blogpost:hover a:visited .description {
+        color: white !important;
+    }
 </style>

@@ -8,14 +8,14 @@ import { getCollection } from "astro:content";
 import "@/styles/typography.css";
 
 export interface Props {
-  content: {
-    title: string;
-    description: string;
-    pubDate?: string;
-    minutesRead?: string;
-    sourceUrl?: string;
-    sourceText?: string;
-  };
+    content: {
+        title: string;
+        description: string;
+        pubDate?: string;
+        minutesRead?: string;
+        sourceUrl?: string;
+        sourceText?: string;
+    };
 }
 
 const { content } = Astro.props;
@@ -26,102 +26,116 @@ const myFeaturedPost = posts.filter((post) => post.data.featured);
 ---
 
 <Layout>
-  <article class="px-6 md:px-3">
-    <div class="w-full pt-6 mx-auto sm:max-w-2xl bg-secondary/10 z-10">
-      <h1
-        class="mb-4 font-serif md:px-10 text-3xl font-medium text-white md:text-4xl"
-      >
-        {content.title}
-      </h1>
-      <h2
-        class="relative block mb-6 md:px-10 font-serif text-xl text-white md:text-xl"
-      >
-        {content.description}
-      </h2>
-
-      <div
-        class="flex items-center font-bold justify-between md:px-10 w-full mx-auto my-3 text-gray-300"
-      >
-        <div class="flex items-center justify-start">
-          <div class="flex items-center">
-            {
-              content.pubDate && (
-                <time class="text-base capitalize font-serif ">
-                  {content.pubDate}
-                </time>
-              )
-            }
-          </div>
-          <span class="px-2">•</span>
-          <div class="text-base font-serif min-w-32 md:mt-0">
-            {content.minutesRead} de lectura
-          </div>
-        </div>
-        {
-          content.sourceUrl && (
-            <a
-              href={content.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-base font-serif  text-right text-white! min-w-32 md:mt-0 underline underline-offset-2"
+    <article class="px-6 md:px-3">
+        <div class="w-full pt-6 mx-auto sm:max-w-2xl bg-secondary/10 z-10">
+            <h1
+                class="mb-4 font-serif md:px-10 text-3xl font-medium text-white md:text-4xl"
             >
-              Ir a la Fuente
-            </a>
-          )
-        }
-      </div>
-      <Separator />
-      <div class="py-3 md:px-10 font-serif italic text-left">
-        {content.sourceText}
-      </div>
-      <Separator />
-    </div>
-    <div class="w-full pt-6 pb-12 prose-content hyphens">
-      <slot />
-    </div>
-    <Separator />
-  </article>
-  <aside class="w-full max-w-3xl px-6 mx-auto sm:px-22">
-    <SubHeading
-      title="Recomendadas"
-      ariaLabel="Ver más contenido de traducciones"
-      link
-    />
-    <div class="grid gap-2">
-      {
-        myFeaturedPost.map((post) => (
-          <BlogPost
-            title={post.data.title}
-            description={post.data.description}
-            url={`/traducciones/${post.slug}`}
-          />
-        ))
-      }
-    </div>
-  </aside>
-  <div class="block w-full max-w-2xl mx-auto z-10 relative mt-8">
-    <Separator />
-  </div>
+                {content.title}
+            </h1>
+            <h2
+                class="relative block mb-6 md:px-10 font-serif text-xl text-white md:text-xl"
+            >
+                {content.description}
+            </h2>
 
-  <Footer />
+            <div
+                class="flex items-center font-bold justify-between md:px-10 w-full mx-auto my-3 text-gray-300"
+            >
+                <div class="flex items-center justify-start">
+                    <div class="flex items-center">
+                        {
+                            content.pubDate && (
+                                <time class="text-base capitalize font-serif ">
+                                    {content.pubDate}
+                                </time>
+                            )
+                        }
+                    </div>
+                    <span class="px-2">•</span>
+                    <div class="text-base font-serif min-w-32 md:mt-0">
+                        {content.minutesRead} de lectura
+                    </div>
+                </div>
+                {
+                    content.sourceUrl && (
+                        <a
+                            href={content.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-base font-serif  text-right text-white! min-w-32 md:mt-0 underline underline-offset-2"
+                        >
+                            Ir a la Fuente
+                        </a>
+                    )
+                }
+            </div>
+            <Separator />
+            <div class="py-3 md:px-10 font-serif italic text-left">
+                {content.sourceText}
+            </div>
+            <Separator />
+        </div>
+        <div class="w-full pt-6 pb-12 prose-content hyphens">
+            <slot />
+        </div>
+        <Separator />
+    </article>
+    <aside class="w-full max-w-3xl px-6 mx-auto sm:px-22">
+        <SubHeading title="Recomendadas" />
+        <div class="grid gap-2">
+            {
+                myFeaturedPost.map((post) => (
+                    <BlogPost
+                        title={post.data.title}
+                        description={post.data.description}
+                        url={`/traducciones/${post.slug}`}
+                    />
+                ))
+            }
+        </div>
+        <a
+            href="/traducciones"
+            aria-label="Ver todas las traducciones"
+            class="flex items-center justify-center gap-2 cursor-pointer text-center w-full bg-gray-950/20 py-6 mt-6 uppercase duration-300 dark:text-white group outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 hover:ring-2 hover:ring-indigo-500"
+        >
+            <span>Ver todas</span>
+            <svg
+                class="text-xl duration-300 translate-x-0 group-hover:translate-x-1 dark:fill-white"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+    </aside>
+    <div class="block w-full max-w-2xl mx-auto z-10 relative mt-8">
+        <Separator />
+    </div>
+
+    <Footer />
 </Layout>
 
-
 <style is:global>
-  .gdesc-inner.gdesc-inner {
-    padding: 0.5rem !important;
-    text-align: center !important;
-  }
+    .gdesc-inner.gdesc-inner {
+        padding: 0.5rem !important;
+        text-align: center !important;
+    }
 
-  .glightbox-clean .gslide-description {
-    background: transparent !important;
-  }
+    .glightbox-clean .gslide-description {
+        background: transparent !important;
+    }
 
-  .gdesc-inner .gslide-title {
-    font-family: var(--font-mono) !important;
-    font-size: var(--text-xs) !important;
-    color: #fff !important;
-    max-width: 70ch;
-    margin: 0 auto;
-  }
+    .gdesc-inner .gslide-title {
+        font-family: var(--font-mono) !important;
+        font-size: var(--text-xs) !important;
+        color: #fff !important;
+        max-width: 70ch;
+        margin: 0 auto;
+    }
 </style>
