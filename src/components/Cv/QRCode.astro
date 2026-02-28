@@ -1,8 +1,8 @@
 ---
 interface Props {
-  url: string;
-  title?: string;
-  print?: boolean;
+    url: string;
+    title?: string;
+    print?: boolean;
 }
 
 const { url, title, print } = Astro.props;
@@ -10,78 +10,76 @@ const { url, title, print } = Astro.props;
 import QrCode from "qrcode";
 
 const qrDataUrl = await QrCode.toDataURL(url, {
-  width: 400,
-  margin: 0,
-  color: {
-    dark: "#000000",
-    light: "#ffffff",
-  },
+    width: 400,
+    margin: 0,
+    color: {
+        dark: "#000000",
+        light: "#ffffff",
+    },
 });
 ---
 
 {
-  !print && (
-    <a
-      href={qrDataUrl}
-      data-type="image"
-      class="glightbox w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
-      aria-label="QR"
-      title={url}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        class="w-6 h-6"
-      >
-        <path
-          class="fill-gray-800 dark:fill-white"
-          d="M3 11h8V3H3zm2-6h4v4H5zM3 21h8v-8H3zm2-6h4v4H5zM13 3v8h8V3zm6 6h-4V5h4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM17 17h2v2h-2zM15 19h2v2h-2zM19 19h2v2h-2z"
-        />
-      </svg>
-    </a>
-  )
+    !print && (
+        <a
+            href={qrDataUrl}
+            data-type="image"
+            class="glightbox w-8 h-8 m-0 flex justify-center items-center font-mono text-lg font-medium text-gray-900 rounded hover:ring-2 ring-transparent hover:ring-gray-300 dark:text-white print:hidden"
+            aria-label="QR"
+            title={url}
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                class="w-6 h-6"
+            >
+                <path
+                    class="fill-gray-800 dark:fill-white"
+                    d="M3 11h8V3H3zm2-6h4v4H5zM3 21h8v-8H3zm2-6h4v4H5zM13 3v8h8V3zm6 6h-4V5h4zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2zM17 17h2v2h-2zM15 19h2v2h-2zM19 19h2v2h-2z"
+                />
+            </svg>
+        </a>
+    )
 }
 {
-  print && (
-    <div class="hidden print:flex absolute  items-center justify-between border text-zinc-700 border-zinc-200 print:bottom-0 print:left-0 print:z-50 translate-x-[1rem] p-0.5 -translate-y-10 w-[15.2rem] gap-2">
-      <span class="pl-2 text-[10px] font-sans italic">{title}</span>
-      <div class="size-[1cm] justify-center  items-center">
-        <img src={qrDataUrl} alt="Código QR" class="size-[1cm]" />
-      </div>
-    </div>
-  )
+    print && (
+        <div class="hidden print:flex absolute  items-center justify-between border text-zinc-700 border-zinc-200 print:bottom-0 print:left-0 print:z-50 translate-x-[1rem] p-0.5 -translate-y-10 w-[15.2rem] gap-2">
+            <span class="pl-2 text-[10px] font-sans italic">{title}</span>
+            <div class="size-[1cm] justify-center  items-center">
+                <img src={qrDataUrl} alt="Código QR" class="size-[1cm]" />
+            </div>
+        </div>
+    )
 }
 
 <style is:global>
-  .gslide-image img {
-    padding: 1rem;
-    background: #fff;
-  }
-
-  .gdesc-inner.gdesc-inner {
-    text-align: center;
-  }
-
-  .glightbox-clean .gslide-description {
-    background: transparent;
-  }
-
-
-
-  .gdesc-inner .gslide-title {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs) !important;
-    color: #fff;
-  }
-
-  @media (max-width: 480px) {
-    .gslide-media {
-      padding: 1rem;
-    }
     .gslide-image img {
-      width: 100% !important;
+        padding: 1rem;
+        background: #fff;
     }
-  }
+
+    .gdesc-inner.gdesc-inner {
+        text-align: center;
+    }
+
+    .glightbox-clean .gslide-description {
+        background: transparent;
+    }
+
+    .gdesc-inner .gslide-title {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs) !important;
+        color: #fff;
+    }
+
+    @media (max-width: 480px) {
+        .gslide-media {
+            padding: 1rem;
+        }
+        .gslide-image img {
+            width: 100% !important;
+        }
+    }
 </style>

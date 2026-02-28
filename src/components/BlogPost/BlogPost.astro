@@ -3,11 +3,11 @@ const { title, description, url } = Astro.props;
 ---
 
 <h3
-  class="blogpost relative w-full justify-start items-start focus-within:ring-2 focus-within:ring-indigo-500 px-2.5 focus-within:pl-2 py-6 font-serif shadow duration-300 hover:shadow-xl border border-primary/10 flex flex-col"
+  class="blogpost relative w-full justify-start items-start focus-within:ring-2 focus-within:ring-indigo-500 px-2.5 py-6 font-serif shadow duration-300 hover:shadow-xl border border-primary/10 flex flex-col  hover:ring-2 hover:ring-indigo-500"
 >
   <a
     href={url}
-    class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:text-[#a5b4fc]! md:text-xl"
+    class="flex w-full flex-col text-2xl font-medium outline-none justify-start items-start gap-2 rounded text-pretty duration-300 visited:text-[#a5b4fc]! md:text-3xl"
   >
     <span
       class="flex flex-col items-start justify-between w-full sm:flex-row sm:items-center"
@@ -29,6 +29,10 @@ const { title, description, url } = Astro.props;
     line-height: 1rem;
     font-family: var(--font-mono);
     font-style: italic;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0.5rem
   }
 
   .blogpost a:visited .visited {

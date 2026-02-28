@@ -2,19 +2,9 @@
 const { title, subtitle } = Astro.props;
 ---
 
-<h1 class="Title">{title}</h1>
-{subtitle && <h2 class="Subtitle">{subtitle}</h2>}
-
-<style>
-  @reference "@/styles/globals.css";
-  .Title {
-    @apply mb-4 font-serif w-full text-left text-4xl font-medium md:text-3xl;
-    @apply text-white border-gray-800;
-  }
-
-  .Subtitle {
-    @apply relative block mb-6 font-serif text-xl;
-    @apply text-white border-gray-800;
-    text-wrap: balance;
-  }
-</style>
+<div class="bg-gray-900/20 mt-3 p-3 pt-6 text-left italic text-gray-200 font-serif">
+  <h1 class="mb-2 w-full text-4xl font-bold  md:text-xl">
+    {title}
+  </h1>
+  {subtitle && <h2 class="relative block mb-6 text-lg ">{subtitle}</h2>}
+</div>
